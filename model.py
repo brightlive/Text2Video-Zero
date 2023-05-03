@@ -3,6 +3,7 @@ import gc
 import numpy as np
 import tomesd
 import torch
+import sys
 
 from diffusers import StableDiffusionInstructPix2PixPipeline, StableDiffusionControlNetPipeline, ControlNetModel, UNet2DConditionModel
 from diffusers.schedulers import EulerAncestralDiscreteScheduler, DDIMScheduler
@@ -54,7 +55,7 @@ class Model:
         gc.collect()
         safety_checker = kwargs.pop('safety_checker', None)
         self.pipe = self.pipe_dict[model_type].from_pretrained(
-            model_id, safety_checker=safety_checker, **kwargs).to(self.device).to(self.dtype)
+            model_id, safety_checker=safety_checker, cache_dir="diffusers-cache", **kwargs).to(self.device).to(self.dtype)
         self.model_type = model_type
         self.model_name = model_id
 
@@ -378,7 +379,7 @@ class Model:
         if self.model_type != ModelType.Text2Video or model_name != self.model_name:
             print("Model update")
             unet = UNet2DConditionModel.from_pretrained(
-                model_name, subfolder="unet")
+                model_name, subfolder="unet", cache_dir="diffusers-cache")
             self.set_model(ModelType.Text2Video,
                            model_id=model_name, unet=unet)
             self.pipe.scheduler = DDIMScheduler.from_config(

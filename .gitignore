@@ -1,2 +1,7 @@
 __pycache__/
-
+.cog
+annotator/ckpts/
+cog_out/
+diffusers-cache/
+output.mp4
+temporal/
