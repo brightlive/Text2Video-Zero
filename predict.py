@@ -9,7 +9,7 @@ from diffusers.schedulers import LMSDiscreteScheduler
 from model import Model
 
 MODEL_CACHE = "diffusers-cache"
-MODEL_ID = "runwayml/stable-diffusion-v1-5"
+MODEL_ID = "nitrosocke/mo-di-diffusion"
 MODEL_VAE = "stabilityai/sd-vae-ft-ema"
 
 
