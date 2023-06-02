@@ -9,7 +9,7 @@ from diffusers.schedulers import LMSDiscreteScheduler
 from model import Model
 
 MODEL_CACHE = "diffusers-cache"
-MODEL_ID = "prompthero/openjourney-v4"
+MODEL_ID = "prompthero/openjourney"
 MODEL_VAE = "stabilityai/sd-vae-ft-ema"
 
 
@@ -102,7 +102,6 @@ class Predictor(BasePredictor):
                         seed=seed, 
                         path=path, 
                         model_name=MODEL_ID, 
-                        revision="c9211c53404dd6f4cfac5f04f33535892260668e",
                         motion_field_strength_x=motion_field_strength_x,
                         motion_field_strength_y=motion_field_strength_y,
                         t0=t0,
