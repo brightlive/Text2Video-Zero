@@ -25,6 +25,10 @@ class Predictor(BasePredictor):
     @torch.cuda.amp.autocast()
     def predict(
         self,
+        model_name: str = Input(
+            description="Model name on huggingface",
+            default="runwayml/stable-diffusion-v1-5"
+        ),
         prompt: str = Input(
             description="Input prompt.",
             default="a cat",
@@ -102,7 +106,7 @@ class Predictor(BasePredictor):
                         n_prompt=negative_prompt,
                         seed=seed, 
                         path=path, 
-                        model_name=MODELS[0], 
+                        model_name=model_name, 
                         motion_field_strength_x=motion_field_strength_x,
                         motion_field_strength_y=motion_field_strength_y,
                         t0=t0,
