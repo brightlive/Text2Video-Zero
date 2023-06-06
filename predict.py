@@ -9,9 +9,10 @@ from diffusers.schedulers import LMSDiscreteScheduler
 from model import Model
 
 MODEL_CACHE = "diffusers-cache"
-MODEL_ID = "runwayml/stable-diffusion-v1-5"
+#MODEL_ID = "runwayml/stable-diffusion-v1-5"
 MODEL_VAE = "stabilityai/sd-vae-ft-ema"
 
+MODELS = ["runwayml/stable-diffusion-v1-5", "prompthero/openjourney-v4", "hakurei/waifu-diffusion", "nitrosocke/mo-di-diffusion"]
 
 class Predictor(BasePredictor):
     def setup(self):
@@ -101,7 +102,7 @@ class Predictor(BasePredictor):
                         n_prompt=negative_prompt,
                         seed=seed, 
                         path=path, 
-                        model_name=MODEL_ID, 
+                        model_name=MODELS[0], 
                         motion_field_strength_x=motion_field_strength_x,
                         motion_field_strength_y=motion_field_strength_y,
                         t0=t0,
