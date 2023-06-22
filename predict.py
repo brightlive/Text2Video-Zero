@@ -12,7 +12,7 @@ MODEL_CACHE = "diffusers-cache"
 #MODEL_ID = "runwayml/stable-diffusion-v1-5"
 MODEL_VAE = "stabilityai/sd-vae-ft-ema"
 
-MODELS = ["runwayml/stable-diffusion-v1-5", "prompthero/openjourney-v4", "hakurei/waifu-diffusion", "nitrosocke/mo-di-diffusion"]
+MODELS = ["runwayml/stable-diffusion-v1-5", "prompthero/openjourney-v4", "admruul/anything-v3.0", "nitrosocke/mo-di-diffusion"]
 
 class Predictor(BasePredictor):
     def setup(self):
