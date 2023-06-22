@@ -26,6 +26,7 @@ class Predictor(BasePredictor):
     def predict(
         self,
         model_name: str = Input(
+            choices=MODELS,
             description="Model name on huggingface",
             default="runwayml/stable-diffusion-v1-5"
         ),
